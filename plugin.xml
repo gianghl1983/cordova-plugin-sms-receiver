@@ -1,0 +1,40 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-sms-receiver"
+    version="1.0.0">
+    
+    <name>SmsReceiver</name>
+    <description>Cordova Sms Receiver Plugin</description>
+    <keywords>cordova,sms,receiver</keywords>
+    
+    <engines>
+	    <engine name="cordova" version=">=4.0.0" />
+	</engines>
+	
+    <js-module src="www/SmsReceiver.js" name="SMS">
+        <clobbers target="navigator.SMSreceiver" />
+    </js-module>
+    
+       <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SMS">
+                <param name="android-package" value="com.rjfun.cordova.sms.SMSPlugin"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/*">
+		    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+			<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+		    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+		    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+		    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+		    <uses-permission android:name="android.permission.READ_SMS" />
+		    <uses-permission android:name="android.permission.WRITE_SMS" />
+		    <uses-permission android:name="android.permission.SEND_SMS" />
+          </config-file>
+          
+            <source-file src="src/android/SmsReceiver.java" target-dir="src/org/apache/cordova/sms" /> 
+    </platform>
+
+</plugin>
