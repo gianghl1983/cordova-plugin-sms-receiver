@@ -3,7 +3,10 @@ package eu.ttbox.cordova.sms;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
 import android.provider.Telephony;
+import android.telephony.SmsMessage;
 import android.util.Log;
 
 
@@ -22,7 +25,7 @@ public class SmsBroadcastReceiver extends BroadcastReceiver {
                 && isRelevant(context, intent)
                 ) {
             Object[] pdus = (Object[]) intent.getExtras().get("pdus");
-            ApplicationContext.getInstance(context).getJobManager().add(new SmsReceiveJob(context, pdus));
+        //    ApplicationContext.getInstance(context).getJobManager().add(new SmsReceiveJob(context, pdus));
 
 //      Intent receivedIntent = new Intent(context, SendReceiveService.class);
 //      receivedIntent.setAction(SendReceiveService.RECEIVE_SMS_ACTION);

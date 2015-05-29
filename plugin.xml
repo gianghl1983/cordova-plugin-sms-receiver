@@ -6,10 +6,7 @@
     <name>SmsReceiver</name>
     <description>Cordova Sms Receiver Plugin</description>
     <keywords>cordova,sms,receiver</keywords>
-    
-    <engines>
-	    <engine name="cordova" version=">=4.0.0" />
-	</engines>
+
 	
     <js-module src="www/SmsReceiver.js" name="SMS">
         <clobbers target="navigator.SMSreceiver" />
